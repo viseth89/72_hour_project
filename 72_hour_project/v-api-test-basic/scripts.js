@@ -13,6 +13,11 @@ function geoFindMe() {
       status.textContent = '';
       mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
       mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+
+
+      console.log(latitude)
+      console.log(longitude)
+    
     }
   
     function error() {
@@ -25,8 +30,9 @@ function geoFindMe() {
       status.textContent = 'Locating…';
       navigator.geolocation.getCurrentPosition(success, error);
     }
-  
   }
   
   document.querySelector('#find-me').addEventListener('click', geoFindMe);
+
+
   
