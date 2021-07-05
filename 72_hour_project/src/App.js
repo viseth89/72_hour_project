@@ -40,7 +40,8 @@ class App extends React.Component {
           React Geolocation Exmaple
         </h2>
 
-        <button onClick={this.getLocation}>Get coordinates</button>
+        {this.getLocation()}
+        {/* <button onClick={this.getLocation}>Get coordinates</button> */}
         <h4>HTML5 Coordinates</h4>
         <p>Latitude: {this.state.latitude}</p>
         <p>Longitude: {this.state.longitude}</p>
