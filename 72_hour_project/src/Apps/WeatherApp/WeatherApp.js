@@ -20,7 +20,7 @@ const WeatherApp = () => {
             }
         })
         .then((data) => {
-            console.log(data);
+            console.log(data)
             setResults(data)
         })
         .catch((error) => {
@@ -29,9 +29,15 @@ const WeatherApp = () => {
         })
     }, [])
     
+    const temp = Math.round((((results.main.temp)-273.15)*1.8)+32)
+
+    document.getElementById('temp').innerHTML = temp + '&deg'
+
     return (
         <div className="main">
-            <div>{JSON.stringify(results.weather[0].description)}</div>
+            {/* <div>{JSON.stringify(results.weather[0].description)}</div> */}
+            <div>{(results.weather[0].description)}</div>
+            <div id="temp"></div>
         </div>
     )
 
