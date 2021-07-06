@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import './TicketApp.css'
 
 const TicketApp = ({lat, lon}) => {
     const [events, setEvents] = useState([])

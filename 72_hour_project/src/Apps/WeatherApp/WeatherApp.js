@@ -4,8 +4,8 @@ const WeatherApp = ({lat, lon}) => {
     const [temp, setTemp] = useState()
     const [weatherDescription, setWeatherDescription] = useState("")
     const [location, setLocation] = useState("")
-    const [Lat, setLat] = useState(lat | 39.78)
-    const [Lon, setLon] = useState(lon | -86.30)
+    const [Lat, setLat] = useState(lat)
+    const [Lon, setLon] = useState(lon)
 
     useEffect(() => {
         
@@ -15,13 +15,19 @@ const WeatherApp = ({lat, lon}) => {
         fetch(URL)
             .then(res => res.json())
             .then(json => {
+                console.log(lat , lon);
                 console.log(json , json?.weather[0]?.description , json.main.temp)
                 setWeatherDescription(json.weather[0].description)
                 setTemp(json.main.temp)
                 setLocation(json.name)
             })
             .catch(() => console.error("Failed to get Weather Data API Fetch Failed"))
-    }, [])
+    },[Lat, Lon])
+    useEffect(() => {
+        setLat(lat)
+        setLon(lon)
+    })
+
 
     let fahrenheit = [Math.round(((parseFloat(temp)-273.15)*1.8)+32)] + '\xB0'
 

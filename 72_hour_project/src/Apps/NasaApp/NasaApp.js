@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./NasaApp.css";
 
 const NasaApp = ({ lat, lon }) => {
   // Additionally, add a button that toggles between Fahrenheit and Centigrade when pulling from the weather API.

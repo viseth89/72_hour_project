@@ -14,14 +14,17 @@ function App() {
     navigator.geolocation.getCurrentPosition(pos => {
       setLat(pos.coords.latitude)
       setLon(pos.coords.longitude)
-    })
+      console.log(lat , lon);
+    },
+    error => console.log(error)
+    )
   }, [])
   // Array Literal -> when I load
 
   return (
     <div className="App">
       <header className="App-header">
-        <WeatherApp />
+        {/* <WeatherApp /> */}
         <WeatherApp lat={lat} lon={lon}/>
         <TicketApp lat={lat} lon={lon}/>
         <NasaApp lat={lat} long={lon}/>
