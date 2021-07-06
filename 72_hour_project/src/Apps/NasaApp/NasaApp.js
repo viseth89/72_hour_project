@@ -3,30 +3,35 @@ import "./NasaApp.css";
 
 const NasaApp = ({ lat, lon }) => {
   // Additionally, add a button that toggles between Fahrenheit and Centigrade when pulling from the weather API.
-  const [photoUrl, setPhotoUrl] = useState(null)
-  const [Lat, setLat] = useState(lat | 39.78);
-  const [Lon, setLon] = useState(lon | -86.3);
+  // Api Key
   const key = "49Wtu9aKiDGK1hhVCS1UmurRddpM3W7tTBrUq97U"
 
+  // Props or default lat/lon
+  const [Lat, setLat] = useState(lat | 39.78);
+  const [Lon, setLon] = useState(lon | -86.3);
+
+  // Dynamic url made in useEffect()
+  const [imgSrc, setImgSrc] = useState();
+
+  let imgStyles = {
+    height:"150px",
+    width:"150px",
+  }
   
   useEffect(() => {
-    const URL =
-      `https://api.nasa.gov/planetary/earth/imagery?api_key=${key}&lon=${Lon}&lat=${Lat}`;
+    let nasaURL = `https://api.nasa.gov/planetary/earth/imagery?api_key=${key}&lon=${Lon}&lat=${Lat}`;
 
-    console.log(URL);
-    console.log('this is line15')
-    fetch(URL)
-      .then((res => res.json()))
-      // .then((json) => {
-      //   console.log(json);
-
-      // })
-      .catch(() => console.error("Failed to get NASA Data API, Fetch Failed"));
-  }, []);
+    console.log(nasaURL)
+    fetch(nasaURL)
+      .then(res => res.blob())
+      .then((imgBlob) => 
+        setImgSrc(URL.createObjectURL(imgBlob))
+      )
+  }, [])
 
   return (
     <div className="main">
-      <p>Display contents here.</p>
+      <img style={imgStyles} src={imgSrc} />
     </div>
   )
 }
