@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <WeatherApp />
+        <WeatherApp lat={55} lon={-85}/>
       </header>
     </div>
   );
