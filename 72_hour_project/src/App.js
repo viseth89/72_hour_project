@@ -1,4 +1,4 @@
-import './App.css';
+import './App.css'
 import WeatherApp from './Apps/WeatherApp/WeatherApp'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
         <WeatherApp lat={55} lon={-85}/>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
