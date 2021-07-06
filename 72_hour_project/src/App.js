@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import WeatherApp from './Apps/WeatherApp/WeatherApp'
+import TicketApp from './Apps/TicketApp/TicketApp'
+import NasaApp from './Apps/NasaApp/NasaApp'
 
 function App() {
+  const [lat, setLat] = useState()
+  const [lon, setLon] = useState()
+
+
+  useEffect( () => {
+    console.log('app loaded')
+    navigator.geolocation.getCurrentPosition(pos => {
+      setLat(pos.coords.latitude)
+      setLon(pos.coords.longitude)
+      console.log(lat , lon);
+    },
+    error => console.log(error)
+    )
+  }, [])
+  // Array Literal -> when I load
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* <WeatherApp /> */}
+        <WeatherApp lat={lat} lon={lon}/>
+        <TicketApp lat={lat} lon={lon}/>
+        <NasaApp lat={lat} long={lon}/>
+        
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
