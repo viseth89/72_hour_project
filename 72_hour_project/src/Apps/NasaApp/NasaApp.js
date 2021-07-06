@@ -6,10 +6,10 @@ const NasaApp = ({ lat, lon }) => {
 
   const [Lat, setLat] = useState(lat | 39.78);
   const [Lon, setLon] = useState(lon | -86.3);
-
+  const key = "49Wtu9aKiDGK1hhVCS1UmurRddpM3W7tTBrUq97U"
   useEffect(() => {
     const URL =
-      "https://api.nasa.gov/planetary/earth/imagery?api_key=49Wtu9aKiDGK1hhVCS1UmurRddpM3W7tTBrUq97U&lon=100.75&lat=100.5";
+      `https://api.nasa.gov/planetary/earth/imagery?api_key=${key}&lon=${Lon}&lat=${Lat}`;
 
     console.log(URL);
     fetch(URL)
