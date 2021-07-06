@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import WeatherApp from './Apps/WeatherApp/WeatherApp'
+import TicketApp from './Apps/TicketApp/TicketApp'
+import NasaApp from './Apps/NasaApp/NasaApp'
 
 function App() {
   const [lat, setLat] = useState()
@@ -22,6 +24,10 @@ function App() {
       <header className="App-header">
         <WeatherApp />
         <WeatherApp lat={lat} lon={lon}/>
+        <TicketApp lat={lat} lon={lon}/>
+        <NasaApp lat={lat} long={lon}/>
+
+        
       </header>
     </div>
   );
