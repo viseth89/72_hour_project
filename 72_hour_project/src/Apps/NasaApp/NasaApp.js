@@ -3,20 +3,24 @@ import "./NasaApp.css";
 
 const NasaApp = ({ lat, lon }) => {
   // Additionally, add a button that toggles between Fahrenheit and Centigrade when pulling from the weather API.
-
+  const [photoUrl, setPhotoUrl] = useState(null)
   const [Lat, setLat] = useState(lat | 39.78);
   const [Lon, setLon] = useState(lon | -86.3);
   const key = "49Wtu9aKiDGK1hhVCS1UmurRddpM3W7tTBrUq97U"
+
+  
   useEffect(() => {
     const URL =
       `https://api.nasa.gov/planetary/earth/imagery?api_key=${key}&lon=${Lon}&lat=${Lat}`;
 
     console.log(URL);
+    console.log('this is line15')
     fetch(URL)
       .then((res => res.json()))
-      .then((json) => {
-        console.log(json);
-      })
+      // .then((json) => {
+      //   console.log(json);
+
+      // })
       .catch(() => console.error("Failed to get NASA Data API, Fetch Failed"));
   }, []);
 
