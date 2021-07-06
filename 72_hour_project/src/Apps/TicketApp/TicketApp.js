@@ -36,7 +36,6 @@ const TicketApp = ({lat, lon}) => {
     return (
         <div className='main'>
             <ul id='event-name'>
-                <li></li>
             </ul>
             <br />
 

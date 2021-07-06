@@ -20,13 +20,11 @@ function App() {
 
   return (
     <div className="App">
-      {lat} <br/> {lon}
       <header className="App-header">
         <WeatherApp />
         <WeatherApp lat={lat} lon={lon}/>
         <TicketApp lat={lat} lon={lon}/>
         <NasaApp lat={lat} long={lon}/>
-
         
       </header>
     </div>
